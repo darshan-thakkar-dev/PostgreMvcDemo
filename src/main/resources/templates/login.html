@@ -18,15 +18,7 @@
 <body>
 <h1 class="text-center">LOGIN</h1>
 
-<div th:if="${param.isError}">
-    <h5 class="text-danger">Invalid username or password</h5>
-</div>
-
-<div th:if="${param.isLogout}">
-    <h5 class="text-danger">You are logged out.</h5>
-</div>
-
-<form th:action="@{/login}" method="post" class="text-center" th:object="${product}">
+<form th:action="@{/login}" method="post" class="text-center" th:object="${person}">
 
     <div>
         <label> User Name : <input type="text" name="username" placeholder="Enter User Name" required="true"
@@ -40,9 +32,15 @@
     </div>
 
     <div>
-        <input type="submit" value="Log In" class="btn btn-info"/>
+        <input type="submit" value="LOG IN" class="btn btn-info"/>
+        <a th:href="@{/}" class="btn btn-danger">BACK</a>
     </div>
 
 </form>
+
+<div th:if="${isError}">
+    <h5 class="text-danger text-center">Invalid username or password</h5>
+</div>
+
 </body>
 </html>

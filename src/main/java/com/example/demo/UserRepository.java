@@ -6,8 +6,10 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByUsernameAndPassword(String username, String password);
+	User findByUsernameAndPasswordAndUserType(String username, String password, String userType);
 
-    List<User> findAllByUserType(String userType);
+	List<User> findAllByUserTypeOrderByIdAsc(String userType);
+
+	User findByUsername(String username);
 
 }

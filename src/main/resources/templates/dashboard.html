@@ -14,9 +14,48 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
-<h1>PATIENT LIST</h1>
-<h4 class="col-md-6"><a th:href="@{/add-patient}">ADD PATIENT</a></h4>
+<div class="container-fluid">
+    <h1 class="text-center">PATIENT LIST</h1>
+    <div class="row">
+                <h4 class="text-left border-warning col-md-4">User's Full name : <span th:text="${session.person.fullName}"/></h4>
+        <div class="col-md-8" align="right">
+            <h4>
+                <a class="btn btn-warning" th:href="@{/add-patient}">ADD PATIENT</a>
+                <a class="btn btn-danger ml-2" th:href="@{/logout}">LOGOUT</a>
+            </h4>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody th:if="${#lists.size(patients) > 0}">
+        <tr th:each="patient : ${patients}">
+            <th scope="row" th:text="${patientStat.index + 1}">1</th>
+            <td th:text="${patient.fullName}">Mark</td>
+            <td th:text="${patient.age}">25</td>
+            <td th:text="${patient.address}">Ahmedabad</td>
+            <td th:text="${patient.mobile}">+918264119367</td>
+            <td th:text="${patient.bloodGroup}">O+ve</td>
+            <td>
+                <a th:href="@{'/add-patient/'+ ${patient.id}}" class="btn btn-danger">UPDATE</a>
+                <a th:href="@{'/delete/'+ ${patient.id}}" class="btn btn-primary">DELETE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>

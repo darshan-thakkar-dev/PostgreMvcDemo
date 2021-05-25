@@ -20,4 +20,16 @@ public class User {
 	private String password;
 	@Column(name = "user_type")
 	private String userType;
+
+	/* Patient properties */
+	@Column(name = "age")
+	private String age;
+	@Column(name = "mobile")
+	private String mobile;
+	@Column(name = "address")
+	private String address;
+	@Column(name = "blood_group")
+	private String bloodGroup;
+	@Column(name = "full_name")
+	private String fullName;
 }

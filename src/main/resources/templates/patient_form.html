@@ -16,8 +16,50 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>ADD PATIENT</h1>
+<h1 class="text-center">ADD PATIENT</h1>
+<form th:action="@{/add-patient}" method="post" class="text-center" th:object="${person}">
 
-<!--th:object="${product} for sending form object to server-->
+    <input type="hidden" name="id" th:field="*{id}">
+
+    <div>
+        <label> Patient Name : <input type="text" name="fullName" placeholder="Enter Full Name" required="true"
+                                      autofocus="true" autocomplete="off" class="input-group" th:field="*{fullName}"/> </label>
+    </div>
+
+    <div>
+        <label> Patient Age : <input type="number" min="0" name="age" placeholder="Enter Age" required="true"
+                                     class="input-group" autocomplete="off" th:field="*{age}"/>
+        </label>
+    </div>
+
+    <div>
+        <label> Patient Mobile Number :
+            <input
+                    type="tel"
+                    maxlength="10" minlength="10"
+                    name="mobile" placeholder="Enter Mobile Number"
+                    required="true" class="input-group"
+                    autocomplete="off" th:field="*{mobile}"/>
+        </label>
+    </div>
+
+    <div>
+        <label> Patient Address : <input type="text" name="address" placeholder="Enter Address" required="true"
+                                         class="input-group" autocomplete="off" th:field="*{address}"/>
+        </label>
+    </div>
+
+    <div>
+        <label> Patient Blood Group : <input type="text" name="bloodGroup" placeholder="Enter Blood Group" required="true"
+                                             class="input-group" autocomplete="off" th:field="*{bloodGroup}"/>
+        </label>
+    </div>
+
+    <div>
+        <input type="submit" value="Save" class="btn btn-info"/>
+        <a th:href="@{/dashboard}" class="btn btn-danger">BACK</a>
+    </div>
+
+</form>
 </body>
 </html>
