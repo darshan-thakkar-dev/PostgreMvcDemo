@@ -16,33 +16,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1 class="text-center">LOGIN</h1>
+<h1>REGISTER</h1>
 
-<div th:if="${param.isError}">
-    <h5 class="text-danger">Invalid username or password</h5>
-</div>
-
-<div th:if="${param.isLogout}">
-    <h5 class="text-danger">You are logged out.</h5>
-</div>
-
-<form th:action="@{/login}" method="post" class="text-center" th:object="${product}">
-
-    <div>
-        <label> User Name : <input type="text" name="username" placeholder="Enter User Name" required="true"
-                                   autofocus="true" autocomplete="off" class="input-group"/> </label>
-    </div>
-
-    <div>
-        <label> Password : <input type="password" name="password" placeholder="Enter Password" required="true"
-                                  class="input-group" autocomplete="off"/>
-        </label>
-    </div>
-
-    <div>
-        <input type="submit" value="Log In" class="btn btn-info"/>
-    </div>
-
-</form>
 </body>
 </html>

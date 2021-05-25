@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo;
 
 import com.example.demo.util.IBaseMapper;
 import org.mapstruct.Mapper;
